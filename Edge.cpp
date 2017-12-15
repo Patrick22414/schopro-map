@@ -1,4 +1,7 @@
 #include "Edge.h"
+#include "Vertex.h"
+
+using namespace std;
 
 Edge::Edge() {
   weight = -1;

@@ -1,7 +1,11 @@
 #ifndef EDGE_H
 #define EDGE_H
 
-#include "Vertex.h"
+#include <iostream>
+
+using namespace std;
+
+class Vertex;
 
 class Edge
 {
@@ -9,8 +13,10 @@ public:
 	Edge();
 	Edge(double xweight);
 	Edge(double xweight, Vertex* xlink, Edge* xnextedge = NULL);
-
 	~Edge();
+
+	void display(/*TODO*/); // print all about this edge onto std::cout
+	//TODO
 
 	friend class Map;
 private:
