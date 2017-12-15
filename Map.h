@@ -3,7 +3,7 @@
 
 #include <string>
 
-enum ErrMap { //TODO };
+enum ErrMap { VERTEX_NOT_FOUND, EDGE_NOT_FOUND， MAP_UNDERFLOW };
 
 class Map
 {
@@ -11,19 +11,21 @@ public:
 	Map();
 	~Map();
 
-	ErrMap addVertex(string vertexdata);
-	ErrMap addEdge(string v1_data, string v2_data, double weight);
+	ErrMap addVertex(string vertexname);
+	ErrMap addEdge(string v1_name, string v2_name, double weight);
 	ErrMap addEdge(int v1_index, int v2_index, double weight);
 	ErrMap addEdge(Vertex* v1, Vertex* v2, double weight);
 private:
-	Vertex* indexsearch(int id) {
+	ErrMap indexsearch(int id, Vertex*& v) {
+		//TODO
 		ans = head;
 		for(int i=1; i<id; i++) {ans = ans->nextvertex;}
 		return ans;
 	}
-	Vertex* datasearch(string xdata) {
+	ErrMap namesearch(string xname) {
+		//TODO
 		ans = head;
-		while(!xdata.compare(ans->data)) {ans = ans->nextvertex;}
+		while(!xname.compare(ans->name)) {ans = ans->nextvertex;}
 		return ans;
 	}
 

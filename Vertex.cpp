@@ -2,21 +2,22 @@
 
 Vertex::Vertex() {
   index = 0;
-  data = "";
+  name = "";
   nextvertex = NULL;
   nextedge = NULL;
 }
 
-Vertex::Vertex(int xindex, string xdata) {
+Vertex::Vertex(int xindex, string xname) {
   index = xindex;
-  data = xdata;
+  name = xname;
+  info = "";
   nextedge = NULL;
   nextvertex = NULL;
 }
 
-Vertex::Vertex(int xindex, string xdata, Vertex* xnextvertex, Edge* xnextedge) {
+Vertex::Vertex(int xindex, string xname, Vertex* xnextvertex, Edge* xnextedge) {
   index = xindex;
-  data = xdata;
+  name = xname;
   nextedge = xnextedge;
   nextvertex = xnextvertex;
 }

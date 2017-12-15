@@ -5,16 +5,16 @@ Map::Map() {
   nofvertex = 0;
   head = NULL;
 }
-ErrMap Vertex::addVertex(string vertexdata) {
+ErrMap Vertex::addVertex(string vertexname) {
   tail = indexsearch(nofvertex);
   nofvertex ++;
-  newvertex = new Vertex(nofvertex, data);
+  newvertex = new Vertex(nofvertex, name);
   tail->nextvertex = newvertex;
 }
 
-ErrMap addEdge(string v1_data, string v2_data, double weight) {
-  Vertex* v1 = datasearch(v1_data);
-  Vertex* v2 = datasearch(v2_data);
+ErrMap addEdge(string v1_name, string v2_name, double weight) {
+  Vertex* v1 = namesearch(v1_name);
+  Vertex* v2 = namesearch(v2_name);
   addEdge(v1, v2, weight);
 }
 
