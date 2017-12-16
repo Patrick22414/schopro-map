@@ -42,7 +42,7 @@ ErrMap Map::addVertex(string vertexname) {
   return MAP_SUCCESS;
 }
 
-ErrMap Map::addEdge(string v1_name, string v2_name, double weight) {
+ErrMap Map::addEdge(string v1_name, string v2_name, double weight, EdgeType xedgetype) {
 // Add an edge between two name-referred vertices.
 // Will invoke ADDEDGE(V1, V2, WEIGHT) to perform the action.
   Vertex* v1 = NULL;
@@ -55,10 +55,10 @@ ErrMap Map::addEdge(string v1_name, string v2_name, double weight) {
   if (flag != MAP_SUCCESS) {
     return flag;
   }
-  return addEdge(v1, v2, weight);
+  return addEdge(v1, v2, weight, xedgetype);
 }
 
-ErrMap Map::addEdge(int v1_index, int v2_index, double weight) {
+ErrMap Map::addEdge(int v1_index, int v2_index, double weight, EdgeType xedgetype) {
 // Add an edge between two index-referred vertices.
 // Will invoke ADDEDGE(V1, V2, WEIGHT) to perform the action.
   Vertex* v1 = NULL;
@@ -71,12 +71,12 @@ ErrMap Map::addEdge(int v1_index, int v2_index, double weight) {
   if (flag != MAP_SUCCESS) {
     return flag;
   }
-  return addEdge(v1, v2, weight);
+  return addEdge(v1, v2, weight, xedgetype);
 }
 
-ErrMap Map::addEdge(Vertex* v1, Vertex* v2, double weight) {
+ErrMap Map::addEdge(Vertex* v1, Vertex* v2, double weight, EdgeType xedgetype) {
 // Add an edge between two vertices using their pointers.
-  Edge* newedge1 = new Edge(weight, v2);
+  Edge* newedge1 = new Edge(weight, xedgetype, v2);
   Edge* v1_edge = v1->nextedge;
   if (v1_edge != NULL) {
     while (v1_edge->nextedge != NULL) {
@@ -87,7 +87,7 @@ ErrMap Map::addEdge(Vertex* v1, Vertex* v2, double weight) {
     v1->nextedge = newedge1;
   }
 
-  Edge* newedge2 = new Edge(weight, v1);
+  Edge* newedge2 = new Edge(weight, xedgetype, v1);
   Edge* v2_edge = v2->nextedge;
   if (v2_edge != NULL) {
     while (v2_edge->nextedge != NULL) {

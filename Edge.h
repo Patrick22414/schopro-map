@@ -6,13 +6,14 @@
 using namespace std;
 
 class Vertex;
+enum EdgeType { DRIVE, WALK };
 
 class Edge
 {
 public:
 	Edge();
-	Edge(double xweight);
-	Edge(double xweight, Vertex* xlink, Edge* xnextedge = NULL);
+	Edge(double xweight, EdgeType xedgetype);
+	Edge(double xweight, EdgeType xedgetype, Vertex* xlink, Edge* xnextedge = NULL);
 	~Edge();
 
 	void display(/*TODO*/); // print all about this edge onto std::cout
@@ -21,6 +22,7 @@ public:
 	friend class Map;
 private:
 	double weight;
+	EdgeType edgetype;
 	Vertex* link;
 	Edge* nextedge;
 };

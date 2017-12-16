@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "Vertex.h"
+#include "Edge.h"
 
 using namespace std;
 
@@ -24,9 +25,9 @@ public:
 	int name2index(string xname);
 // generataion methods
 	ErrMap addVertex(string vertexname);
-	ErrMap addEdge(string v1_name, string v2_name, double weight);
-	ErrMap addEdge(int v1_index, int v2_index, double weight);
-	ErrMap addEdge(Vertex* v1, Vertex* v2, double weight);
+	ErrMap addEdge(string v1_name, string v2_name, double weight, EdgeType xedgetype);
+	ErrMap addEdge(int v1_index, int v2_index, double weight, EdgeType xedgetype);
+	ErrMap addEdge(Vertex* v1, Vertex* v2, double weight, EdgeType xedgetype);
 // deletion methods
 	ErrMap deleteVertex(/*TODO*/); // delete a vertex and all edges linked to it
 	ErrMap deleteEdge(/*TODO*/); // delete an edge
