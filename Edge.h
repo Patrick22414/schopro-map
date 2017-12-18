@@ -15,8 +15,7 @@ public:
 	Edge(double xweight, string xedgetype, Vertex* xlink, Edge* xnextedge = NULL);
 	~Edge();
 
-	void display(/*TODO*/); // print all about this edge onto std::cout
-	//TODO
+	void display(); // print all about this edge onto std::cout
 
 	friend class Map;
 private:

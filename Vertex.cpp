@@ -6,7 +6,7 @@ using namespace std;
 Vertex::Vertex() {
   index = 0;
   name = "";
-  info = "";
+  info = "no information";
   nextvertex = NULL;
   nextedge = NULL;
 }
@@ -20,11 +20,11 @@ Vertex::Vertex(int xindex, string xname) {
 }
 
 Vertex::Vertex(int xindex, string xname, string xinfo){
-    index = xindex;
-    name = xname;
-    info = xinfo;
-    nextedge = NULL;
-    nextvertex = NULL;
+  index = xindex;
+  name = xname;
+  info = xinfo;
+  nextedge = NULL;
+  nextvertex = NULL;
 }
 
 Vertex::Vertex(int xindex, string xname, string xinfo, Vertex* xnextvertex, Edge* xnextedge) {
@@ -39,11 +39,12 @@ Vertex::~Vertex()
 {
 }
 
-void Vertex::vdisplay(){
-    // display infos about this vertex
-    cout << endl;
-    cout << "index = " << index << endl;
-    cout << "name = "  << name  << endl;
-    cout << "info = "  << info  << endl;
-    cout << endl;
+void Vertex::display() {
+  // display infos about this vertex
+  cout << endl;
+  cout << "---Vertex---" << endl;
+  cout << "index = " << index << endl;
+  cout << "name = "  << name  << endl;
+  cout << "info = "  << info  << endl;
+  cout << endl;
 }

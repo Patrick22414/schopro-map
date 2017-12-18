@@ -23,9 +23,8 @@ public:
 	Vertex(int xindex, string xname, string xinfo, Vertex* xnextvertex, Edge* xnextedge);
 	~Vertex();
 
-	void vdisplay(/*TODO*/); // print all about this vertex onto std::cout
-	//TODO
-	
+	void display(); // print all about this vertex onto std::cout
+
 	friend class Map;
 private:
 	int index;

@@ -34,9 +34,9 @@ public:
 // general methods
 	vector<int> shortest(/*TODO*/); // calculate the shortest path between two vertices and store the path in a std::vector
 	Vertex operator[](int xindex/*TODO*/); // overloaded operator [] to get a copy of a vertex
-    string info(string vertexname);
+	string getInfo(string vertexname);
 // display methods
-    void display();
+	void display();
 private:
 	ErrMap indexsearch(int id, Vertex*& v);
 	ErrMap namesearch(string xname, Vertex*& v);

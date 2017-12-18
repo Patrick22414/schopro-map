@@ -24,6 +24,21 @@ Edge::Edge(double xweight, string xedgetype, Vertex* xlink, Edge* xnextedge) {
   nextedge = xnextedge;
 }
 
+void Edge::display() {
+    // display infos about this edge
+    cout << endl;
+    cout << "---Edge---" << endl;
+    cout << "weight = "  << weight  << endl;
+    cout << "edge type = "  << edgetype  << endl;
+    cout << "link to =>";
+    if (link != NULL) {
+      link->display();
+    }else {
+      cout << " no vertex" << endl;
+      cout << endl;
+    }
+}
+
 Edge::~Edge()
 {
 }

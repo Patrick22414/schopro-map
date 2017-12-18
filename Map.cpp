@@ -106,6 +106,25 @@ Map::~Map()
 {
 }
 
+string Map::getInfo(string vertexname) {
+  Vertex* v = NULL;
+  ErrMap flag = namesearch(vertexname, v);
+  if (flag != MAP_SUCCESS) {
+    return "No information available.";
+  }
+  return v->info;
+}
+
+void Map::display(){
+    //display infos about map
+    Vertex* v = head;
+    for(int i = 1; i <= nofvertex; i++)
+    {
+        v->display();
+        v = v->nextvertex;
+    }
+}
+
 // Private methods of class Map below
 
 ErrMap Map::indexsearch(int id, Vertex*& v) {
@@ -140,30 +159,11 @@ ErrMap Map::namesearch(string xname, Vertex*& v) {
 //       reference.
 //------------------------------------------------------------------------------
 	v = head;
-	while ((!xname.compare(v->name)) && (v!=NULL)) {
+	while ((v!=NULL) && (xname!=v->name)) {
 		v = v->nextvertex;
 	}
 	if (v == NULL) {
 		return VERTEX_NOT_FOUND;
 	}
 	return MAP_SUCCESS;
-}
-
-string Map::info(string xname){
-    Vertex* v = head;
-    while(xname.compare(v->name)){
-        v = v->nextvertex;
-    }
-	return v->info;
-}
-
-void Map::display(){
-    //display infos about map
-    Vertex* v = NULL;
-    v = head;
-    for(int i = 1; i <= nofvertex; i++)
-    {
-        v->vdisplay();
-        v = v->nextvertex;
-    }
 }
