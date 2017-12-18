@@ -140,7 +140,7 @@ ErrMap Map::namesearch(string xname, Vertex*& v) {
 //       reference.
 //------------------------------------------------------------------------------
 	v = head;
-	while ((!xname.compare(v->name)) && (v!=NULL)) {
+	while ((xname==v->name) && (v!=NULL)) {
 		v = v->nextvertex;
 	}
 	if (v == NULL) {
