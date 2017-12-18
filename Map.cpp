@@ -25,9 +25,9 @@ int Map::name2index(string xname) {
   return v->index;
 }
 
-ErrMap Map::addVertex(string vertexname) {
+ErrMap Map::addVertex(string vertexname, string info) {
 // Add a vertex at the end of list
-  Vertex* newvertex = new Vertex(nofvertex+1, vertexname);
+  Vertex* newvertex = new Vertex(nofvertex+1, vertexname, info);
   if (head == NULL) {
     head = newvertex;
   }else {
@@ -42,7 +42,7 @@ ErrMap Map::addVertex(string vertexname) {
   return MAP_SUCCESS;
 }
 
-ErrMap Map::addEdge(string v1_name, string v2_name, double weight, EdgeType xedgetype) {
+ErrMap Map::addEdge(string v1_name, string v2_name, double weight, string xedgetype) {
 // Add an edge between two name-referred vertices.
 // Will invoke ADDEDGE(V1, V2, WEIGHT) to perform the action.
   Vertex* v1 = NULL;
@@ -58,7 +58,7 @@ ErrMap Map::addEdge(string v1_name, string v2_name, double weight, EdgeType xedg
   return addEdge(v1, v2, weight, xedgetype);
 }
 
-ErrMap Map::addEdge(int v1_index, int v2_index, double weight, EdgeType xedgetype) {
+ErrMap Map::addEdge(int v1_index, int v2_index, double weight, string xedgetype) {
 // Add an edge between two index-referred vertices.
 // Will invoke ADDEDGE(V1, V2, WEIGHT) to perform the action.
   Vertex* v1 = NULL;
@@ -74,7 +74,7 @@ ErrMap Map::addEdge(int v1_index, int v2_index, double weight, EdgeType xedgetyp
   return addEdge(v1, v2, weight, xedgetype);
 }
 
-ErrMap Map::addEdge(Vertex* v1, Vertex* v2, double weight, EdgeType xedgetype) {
+ErrMap Map::addEdge(Vertex* v1, Vertex* v2, double weight, string xedgetype) {
 // Add an edge between two vertices using their pointers.
   Edge* newedge1 = new Edge(weight, xedgetype, v2);
   Edge* v1_edge = v1->nextedge;
@@ -147,4 +147,23 @@ ErrMap Map::namesearch(string xname, Vertex*& v) {
 		return VERTEX_NOT_FOUND;
 	}
 	return MAP_SUCCESS;
+}
+
+string Map::info(string xname){
+    Vertex* v = head;
+    while(xname.compare(v->name)){
+        v = v->nextvertex;
+    }
+	return v->info;
+}
+
+void Map::display(){
+    //display infos about map
+    Vertex* v = NULL;
+    v = head;
+    for(int i = 1; i <= nofvertex; i++)
+    {
+        v->vdisplay();
+        v = v->nextvertex;
+    }
 }

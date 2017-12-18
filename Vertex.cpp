@@ -14,9 +14,17 @@ Vertex::Vertex() {
 Vertex::Vertex(int xindex, string xname) {
   index = xindex;
   name = xname;
-  info = "";
+  info = "no information";
   nextedge = NULL;
   nextvertex = NULL;
+}
+
+Vertex::Vertex(int xindex, string xname, string xinfo){
+    index = xindex;
+    name = xname;
+    info = xinfo;
+    nextedge = NULL;
+    nextvertex = NULL;
 }
 
 Vertex::Vertex(int xindex, string xname, string xinfo, Vertex* xnextvertex, Edge* xnextedge) {
@@ -29,4 +37,13 @@ Vertex::Vertex(int xindex, string xname, string xinfo, Vertex* xnextvertex, Edge
 
 Vertex::~Vertex()
 {
+}
+
+void Vertex::vdisplay(){
+    // display infos about this vertex
+    cout << endl;
+    cout << "index = " << index << endl;
+    cout << "name = "  << name  << endl;
+    cout << "info = "  << info  << endl;
+    cout << endl;
 }
