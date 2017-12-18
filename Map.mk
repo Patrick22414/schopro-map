@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Songyi
-Date                   :=16/12/2017
+Date                   :=18/12/2017
 CodeLitePath           :="C:/Program Files/CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/Edge.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Vertex.cpp$(ObjectSuffix) $(IntermediateDirectory)/Map.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Vertex.cpp$(ObjectSuffix) $(IntermediateDirectory)/Map.cpp$(ObjectSuffix) $(IntermediateDirectory)/Edge.cpp$(ObjectSuffix) 
 
 
 
@@ -93,14 +93,6 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/Edge.cpp$(ObjectSuffix): Edge.cpp $(IntermediateDirectory)/Edge.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "F:/Documents/GitHub/schopro-map/Edge.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Edge.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Edge.cpp$(DependSuffix): Edge.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Edge.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Edge.cpp$(DependSuffix) -MM Edge.cpp
-
-$(IntermediateDirectory)/Edge.cpp$(PreprocessSuffix): Edge.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Edge.cpp$(PreprocessSuffix) Edge.cpp
-
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "F:/Documents/GitHub/schopro-map/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
@@ -124,6 +116,14 @@ $(IntermediateDirectory)/Map.cpp$(DependSuffix): Map.cpp
 
 $(IntermediateDirectory)/Map.cpp$(PreprocessSuffix): Map.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Map.cpp$(PreprocessSuffix) Map.cpp
+
+$(IntermediateDirectory)/Edge.cpp$(ObjectSuffix): Edge.cpp $(IntermediateDirectory)/Edge.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "F:/Documents/GitHub/schopro-map/Edge.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Edge.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Edge.cpp$(DependSuffix): Edge.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Edge.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Edge.cpp$(DependSuffix) -MM Edge.cpp
+
+$(IntermediateDirectory)/Edge.cpp$(PreprocessSuffix): Edge.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Edge.cpp$(PreprocessSuffix) Edge.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

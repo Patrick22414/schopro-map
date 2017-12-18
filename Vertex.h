@@ -19,12 +19,12 @@ class Vertex
 public:
 	Vertex();
 	Vertex(int xindex, string xname);
+    Vertex(int xindex, string xname, string xinfo);
 	Vertex(int xindex, string xname, string xinfo, Vertex* xnextvertex, Edge* xnextedge);
 	~Vertex();
 
-	void display(/*TODO*/); // print all about this vertex onto std::cout
-	//TODO
-	
+	void display(); // print all about this vertex onto std::cout
+
 	friend class Map;
 private:
 	int index;
