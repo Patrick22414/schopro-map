@@ -24,7 +24,7 @@ public:
 	~Vertex();
 
 	void display(); // print all about this vertex onto std::cout
-
+	void display_short();
 	friend class Map;
 private:
 	int index;

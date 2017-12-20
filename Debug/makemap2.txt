@@ -1,0 +1,17 @@
+6
+place1 %good place 1.
+place2 %good place 2.
+place3 %good place 3.
+place4 %good place 4.
+place5 %good place 5.
+place6 %good place 6.
+9
+place1	2	place3	WALK
+place1	7	place4	DRIVE
+place1	14	place5	DRIVE
+place2	6	place5	DRIVE
+place2	4	place6	WALK
+place3	5	place4	DRIVE
+place3	9	place5	DRIVE
+place3	3	place6	DRIVE
+place4	15	place6	DRIVE

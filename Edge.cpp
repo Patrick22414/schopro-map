@@ -32,7 +32,7 @@ void Edge::display() {
     cout << "edge type = "  << edgetype  << endl;
     cout << "link to =>";
     if (link != NULL) {
-      link->display();
+      link->display_short();
     }else {
       cout << " no vertex" << endl;
       cout << endl;

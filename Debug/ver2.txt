@@ -1,5 +1,10 @@
 place3
-place5
-place1
-place2
 place4
+place5
+place5
+place6
+place4
+place5
+place6
+place6
+

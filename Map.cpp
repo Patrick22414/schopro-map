@@ -39,6 +39,9 @@ ErrMap Map::addVertex(string vertexname, string info) {
     tail->nextvertex = newvertex;
   }
   nofvertex ++;
+
+  matrix_extend();
+
   return MAP_SUCCESS;
 }
 
@@ -55,6 +58,12 @@ ErrMap Map::addEdge(string v1_name, string v2_name, double weight, string xedget
   if (flag != MAP_SUCCESS) {
     return flag;
   }
+// Disable paths already found
+  for (int i=1; i<=nofvertex; i++) {
+	  prev_matrix[i][0] = 0;
+	  dist_matrix[i][0] = 0.0;
+  }
+
   return addEdge(v1, v2, weight, xedgetype);
 }
 
@@ -121,6 +130,11 @@ void Map::display(){
     for(int i = 1; i <= nofvertex; i++)
     {
         v->display();
+        Edge* e = v->nextedge;
+        while (e != NULL) {
+          e->display();
+          e = e->nextedge;
+        }
         v = v->nextvertex;
     }
 }

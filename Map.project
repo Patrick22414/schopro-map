@@ -93,7 +93,7 @@
     </Configuration>
   </Settings>
   <VirtualDirectory Name="src">
-    <File Name="name.txt"/>
+    <File Name="Map-path.cpp"/>
     <File Name="main.cpp"/>
     <File Name="Map.h"/>
     <File Name="Map.cpp"/>

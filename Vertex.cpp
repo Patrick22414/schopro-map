@@ -42,9 +42,14 @@ Vertex::~Vertex()
 void Vertex::display() {
   // display infos about this vertex
   cout << endl;
-  cout << "---Vertex---" << endl;
+  cout << "***Vertex***" << endl;
   cout << "index = " << index << endl;
   cout << "name = "  << name  << endl;
   cout << "info = "  << info  << endl;
+  cout << endl;
+}
+
+void Vertex::display_short() {
+  cout << "  *Vertex " << index << ": " << name << "*" << endl;
   cout << endl;
 }
